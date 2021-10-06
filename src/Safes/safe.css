@@ -3,6 +3,12 @@
   background-color: #151820;
   width: 100%;
   color: white;
+  width: 32rem;
+  position: absolute;
+  top: 6.5rem;
+  left: 10rem;
+  display: flex;
+  height: calc(100vh - 9.5rem);
 }
 .top {
   display: flex;

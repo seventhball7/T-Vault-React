@@ -8,12 +8,3 @@ body {
   height: 100vh;
   background-image: linear-gradient(to top, #2f3545, #1d212c);
 }
-
-.safeitems {
-  width: 32rem;
-  position: absolute;
-  top: 6.5rem;
-  left: 10rem;
-  display: flex;
-  height: calc(100vh - 9.5rem);
-}
