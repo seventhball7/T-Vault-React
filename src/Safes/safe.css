@@ -1,0 +1,56 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap");
+.saferoot {
+  background-color: #151820;
+  width: 100%;
+  color: white;
+}
+.top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 3.5rem;
+  border-bottom: solid 1px #2a2e3e;
+}
+.countndown {
+  display: flex;
+  justify-content: center;
+  margin-left: 2rem;
+  position: relative;
+  margin-right: 1rem;
+}
+.count {
+  font-size: 19px;
+  font-family: "Roboto", sans-serif;
+  font-weight: bold;
+}
+.down {
+  margin-left: 1.5rem;
+  cursor: pointer;
+}
+.search {
+  position: absolute;
+  width: 25px;
+
+  left: 6px;
+}
+#box {
+  height: 2.5rem;
+  margin-right: 0.5rem;
+  padding-left: 3rem;
+  cursor: pointer;
+  background-color: #20232e;
+  color: #5e627c;
+  border: solid #20232e;
+}
+.searchnbox {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+#empty {
+  width: 222px;
+  height: 260px;
+  position: absolute;
+  left: 150px;
+  top: 193px;
+}
