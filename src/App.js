@@ -1,6 +1,6 @@
-import NavBar from "./navBar/navBar";
-import Safes from "./Safes/safes";
-import Secret from "./secrets/secrestOfsafe";
+import NavBar from "./components/navBar/navBar";
+import Safes from "./pages/home/Safes/safes";
+import Secret from "./pages/home/secrets/secrestOfsafe";
 import "./App.css";
 function App() {
   return (

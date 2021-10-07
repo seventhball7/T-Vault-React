@@ -7,7 +7,7 @@ import {
   useParams,
 } from "react-router-dom";
 import "./navbar.css";
-import logo from "../assets/iconsPack/logo.png";
+import logo from "../../assets/iconsPack/logo.png";
 
 function Account() {
   const { account } = useParams();

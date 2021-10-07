@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
 import "./safe.css";
-import Addsafe from "../Modal/addsafe/addsafe";
-import expand from "../assets/iconsPack/icon_arrow_white.svg";
-import search from "../assets/iconsPack/search.png";
-import empty from "../assets/iconsPack/empty.png";
-import add from "../assets/iconsPack/add.png";
+import Addsafe from "../../../Modal/addsafe/addsafe";
+import expand from "../../../assets/iconsPack/icon_arrow_white.svg";
+import search from "../../../assets/iconsPack/search.png";
+import empty from "../../../assets/iconsPack/empty.png";
+import add from "../../../assets/iconsPack/add.png";
 const Safes = () => {
   const [AddnewSafe, setAddnewsafe] = useState(false);
 
