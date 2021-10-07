@@ -4,18 +4,31 @@ import {
   Switch,
   Link,
   Route,
-  useParams,
+  useLocation,
 } from "react-router-dom";
+import queryString from "query-string";
 import "./navbar.css";
 import logo from "../../assets/iconsPack/logo.png";
 
 function Account() {
-  const { account } = useParams();
-
-  return <h3>ID: {account}</h3>;
+  const { search } = useLocation();
+  const { data } = queryString.parse(search);
+  return (
+    <>
+      <h3>{data}</h3>
+    </>
+  );
 }
 
 const NavBar = () => {
+  const data = [
+    { link: "/", name: "Safes" },
+    { link: "/valut?data=hello", name: "Vault AppRoles" },
+    { link: "/valut?data=hii", name: "Service Accounts" },
+    { link: "/valut?data=there", name: "IAM Service Accounts" },
+    { link: "/valut?data=where", name: "Azure Active Directory" },
+  ];
+
   return (
     <Router>
       <Switch>
@@ -28,33 +41,15 @@ const NavBar = () => {
               </div>
               <div className="link">
                 <ul className="linklist">
-                  <li className="options">
-                    <Link to="/" className="links">
-                      Safes
-                    </Link>
-                  </li>
-                  <li className="options">
-                    <Link to="/valut" className="links">
-                      Valut AppRoles
-                    </Link>
-                  </li>
-                  <li className="options">
-                    <Link to="/service" className="links">
-                      Service Accounts
-                    </Link>
-                  </li>
-                  <li className="options">
-                    <Link to="/service?IAM" className="links">
-                      IAM Service Accounts
-                    </Link>
-                  </li>
-                  <li className="options">
-                    <Link to="/Azure" className="links">
-                      Azure Active Directory
-                    </Link>
-                  </li>
+                  {data.map((item) => (
+                    <li className="options" key={item.name}>
+                      <Link to={item.link} className="links">
+                        {item.name}
+                      </Link>
+                    </li>
+                  ))}
                 </ul>
-                <Route path="/:account/">
+                <Route path="/">
                   <Account />
                 </Route>
               </div>

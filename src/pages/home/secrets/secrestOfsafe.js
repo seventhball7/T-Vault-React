@@ -1,6 +1,6 @@
 import React from "react";
 import "./secretOfsafe.css";
-import addfolder from "../../../assets/iconsPack/add.png";
+import addfolder from "../../../assets/iconsPack/add-folder.png";
 const Secret = () => {
   return (
     <div className="secretroot">
