@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from "react";
 import "./safe.css";
+import Addsafe from "../Modal/addsafe/addsafe";
 import expand from "../assets/iconsPack/icon_arrow_white.svg";
 import search from "../assets/iconsPack/search.png";
 import empty from "../assets/iconsPack/empty.png";
 import add from "../assets/iconsPack/add.png";
 const Safes = () => {
+  const [AddnewSafe, setAddnewsafe] = useState(false);
+
   return (
     <div className="saferoot">
       <div className="top">
@@ -17,10 +20,12 @@ const Safes = () => {
           <input type="text" id="box" placeholder="Search"></input>
         </div>
       </div>
-      {/*creating for empty*/}
+      {AddnewSafe && <Addsafe setTrigger={setAddnewsafe} />}
       <div className="noelements">
         <img src={empty} id="empty" alt="ICON OF COMP"></img>
-        {/* <img src={add} id="addnew" alt="ADD Button"></img> */}
+        <button onClick={() => setAddnewsafe(true)} id="createNewBtn">
+          +<span className="onHoverShowText">Create New Safe</span>
+        </button>
       </div>
     </div>
   );

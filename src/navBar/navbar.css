@@ -96,3 +96,7 @@ ul {
   transition: all 0.1s ease-in-out;
   background-image: linear-gradient(to top, #72134b, #1d212c);
 }
+.links {
+  text-decoration: none;
+  color: #ffffff;
+}

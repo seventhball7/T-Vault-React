@@ -27,7 +27,7 @@
 .count {
   font-size: 19px;
   font-family: "Roboto", sans-serif;
-  font-weight: bold;
+  font-weight: 500;
 }
 .down {
   margin-left: 1.5rem;
@@ -59,4 +59,40 @@
   position: absolute;
   left: 150px;
   top: 193px;
+}
+#createNewBtn {
+  top: 27rem;
+  right: 13.5rem;
+  position: absolute;
+  background-color: hsl(329, 69%, 39%);
+  height: 4rem;
+  width: 4rem;
+  border-radius: 50%;
+  color: white;
+  font-size: 1.5rem;
+  border: solid 2px hsl(329, 69%, 39%);
+}
+#createNewBtn:hover {
+  cursor: pointer;
+}
+
+#createNewBtn:hover .onHoverShowText {
+  cursor: pointer;
+  visibility: visible;
+  cursor: pointer;
+  position: absolute;
+}
+
+#createNewBtn .onHoverShowText {
+  visibility: hidden;
+  position: absolute;
+  background: white;
+  margin-left: -4.5rem;
+  font-size: 0.8rem;
+  margin-top: 4rem;
+  color: black;
+  height: 1.7rem;
+  width: 8rem;
+  padding-top: 0.35rem;
+  font-weight: 600;
 }
