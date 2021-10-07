@@ -14,7 +14,6 @@ const Secret = () => {
         <div className="secretoption">
           <div className="secrentnpermission">
             <span className="secret">Secret</span>
-            <span className="permission">Permission</span>
           </div>
           <div className="addf">
             <span className="addfolder">Add Folder</span>

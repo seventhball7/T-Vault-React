@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./safe.css";
-import Addsafe from "../../../Modal/addsafe/addsafe";
+import Addsafe from "../../../components/addsafe/addsafe";
 import expand from "../../../assets/iconsPack/icon_arrow_white.svg";
 import search from "../../../assets/iconsPack/search.png";
 import empty from "../../../assets/iconsPack/empty.png";
