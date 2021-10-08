@@ -5,8 +5,8 @@ import Secret from "./secretsfolder/secrestOfsafe";
 const SafePage = () => {
   return (
     <section>
-      <Safes></Safes>
-      <Secret></Secret>
+      <Safes />
+      <Secret />
     </section>
   );
 };

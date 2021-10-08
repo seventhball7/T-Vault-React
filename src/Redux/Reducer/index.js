@@ -1,8 +1,8 @@
-import { combineReducer } from "redux";
-import reducer from "./reducer";
+import { combineReducers } from "redux";
+import SafeReducer from "../Reducer/reducer";
 
-const reducers = combineReducer({
-  safe: reducer,
+const Reducers = combineReducers({
+  safe: SafeReducer,
 });
 
-export default reducers;
+export default Reducers;

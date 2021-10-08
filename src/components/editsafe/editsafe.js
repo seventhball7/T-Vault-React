@@ -1,27 +1,30 @@
 import React, { useState, useReducer, useEffect } from "react";
-import "./addsafe.css";
+import "../addsafe/addsafe.css";
 import safe from "../../assets/iconsPack/safe-icon.png";
-import { useDispatch } from "react-redux";
-import { addActionevent } from "../../Redux/Actions/action";
+import { useDispatch, useSelector } from "react-redux";
+import { addActionevent, editEvent } from "../../Redux/Actions/action";
 
-function AddSafe(props) {
-  const { handleclosemodel } = props;
+function Editsafe(props) {
+  const { handleclosemodel, id } = props;
+  const allSafesList = useSelector((state) => state.safe);
+  const currentsafe = allSafesList.find((item) => item.id === id);
 
-  const [safeName, setsafeName] = useState("");
-  const [owner, setownerName] = useState("");
-  const [Description, setDescription] = useState("");
-  const [Catagory, setCatagory] = useState("personal");
+  const [safeName, setsafeName] = useState(currentsafe.safeName);
+  const [owner, setownerName] = useState(currentsafe.owner);
+  const [Description, setDescription] = useState(currentsafe.Description);
+  const [Catagory, setCatagory] = useState(currentsafe.Catagory);
 
   const dispatch = useDispatch();
-  const HandleAdd = (e) => {
+
+  const handleEdit = (e) => {
     e.preventDefault();
     dispatch(
-      addActionevent({
+      editEvent({
         safeName: safeName,
         owner: owner,
         Description: Description,
         Catagory: Catagory,
-        id: Math.random(),
+        id: props.id,
       })
     );
     handleclosemodel();
@@ -32,7 +35,7 @@ function AddSafe(props) {
       <form
         className="form"
         onSubmit={(e) => {
-          HandleAdd(e);
+          handleEdit(e, props.index);
         }}
       >
         <h2 className="form-h2">Create Safe</h2>
@@ -97,4 +100,4 @@ function AddSafe(props) {
     </div>
   );
 }
-export default AddSafe;
+export default Editsafe;

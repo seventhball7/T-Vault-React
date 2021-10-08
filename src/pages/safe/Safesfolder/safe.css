@@ -7,8 +7,12 @@
   position: absolute;
   top: 6.5rem;
   left: 10rem;
-  display: flex;
   height: calc(100vh - 9.5rem);
+}
+.allSafe-wrapper {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 .top {
   display: flex;
