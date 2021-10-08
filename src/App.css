@@ -8,3 +8,11 @@ body {
   height: 100vh;
   background-image: linear-gradient(to top, #2f3545, #1d212c);
 }
+#id {
+  width: 100vh;
+  height: 100vh;
+}
+.root {
+  width: 100vw;
+  height: 100vh;
+}

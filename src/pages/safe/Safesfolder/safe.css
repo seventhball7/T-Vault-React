@@ -1,13 +1,12 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap");
 .saferoot {
   background-color: #151820;
-  width: 100%;
   color: white;
-  width: 32rem;
+  width: 34rem;
   position: absolute;
-  top: 6.5rem;
+  top: 3rem;
   left: 10rem;
-  height: calc(100vh - 9.5rem);
+  height: calc(100vh - 11rem);
 }
 .allSafe-wrapper {
   display: flex;
