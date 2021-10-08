@@ -4,7 +4,8 @@ import Addsafe from "../../../components/addsafe/addsafe";
 import expand from "../../../assets/iconsPack/icon_arrow_white.svg";
 import search from "../../../assets/iconsPack/search.png";
 import empty from "../../../assets/iconsPack/empty.png";
-import add from "../../../assets/iconsPack/add.png";
+import Cards from "../../../components/cards/cards";
+
 const Safes = () => {
   const [AddnewSafe, setAddnewsafe] = useState(false);
 
@@ -27,6 +28,19 @@ const Safes = () => {
           +<span className="onHoverShowText">Create New Safe</span>
         </button>
       </div>
+      {/* <div className="allSafe-wrapper">
+        <div className="items-btn-wrap">
+          return (
+          <div className="items-wrap">
+            <div className="items">
+              <ul id="infoCard-ul">
+                <Cards />
+              </ul>
+            </div>
+          </div>
+          );
+        </div>
+      </div> */}
     </div>
   );
 };

@@ -15,15 +15,13 @@
   justify-content: center;
   height: 4rem;
   z-index: 3;
+  padding: 0 10rem;
 }
 .wrapper {
   width: 100%;
-  /* margin-left: 5rem;
-  margin-right: 5rem; */
   display: flex;
 }
 .logonlink {
-  padding-left: 10rem;
   width: 70%;
   display: flex;
   align-items: center;
@@ -70,7 +68,6 @@ ul {
   align-items: center;
   width: 30%;
   font-size: 0.75rem;
-  padding-right: 10rem;
 }
 .doc,
 .admin2 {

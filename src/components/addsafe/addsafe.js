@@ -19,12 +19,14 @@ function AddSafe(props) {
         <div className="SafeInputs">
           <label>Safe Name</label>
           <input
+            required="required"
             className="inputTag"
             type="text"
             placeholder="Enter Name"
           ></input>
           <label>Owner</label>
           <input
+            required="required"
             className="inputTag"
             type="text"
             placeholder="Owner's Name"
@@ -38,15 +40,17 @@ function AddSafe(props) {
             <option value="shared">Public</option>
           </select>
           <label>Description</label>
-          <textarea placeholder="Fill this" rows="6" cols="50"></textarea>
+          <textarea
+            required="required"
+            placeholder="Fill this"
+            rows="6"
+            cols="50"
+          ></textarea>
           <p className="bottomP">Add any details about the safe</p>
         </div>
         <div className="buttons">
-          <button className="cancelBtn" onClick={() => props.setTrigger(false)}>
-            Cancel
-          </button>
+          <button className="cancelBtn">Cancel</button>
           <input type="submit" value="+ Create" className="createBtn" />
-          {props.children}
         </div>
       </form>
     </div>

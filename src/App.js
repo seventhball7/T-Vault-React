@@ -1,13 +1,11 @@
 import NavBar from "./components/navBar/navBar";
-import Safes from "./pages/safe/Safesfolder/safes";
-import Secret from "./pages/safe/secretsfolder/secrestOfsafe";
+import SafePage from "./pages/safe/safe";
 import "./App.css";
 function App() {
   return (
     <div className="wrapper">
       <NavBar />
-      <Safes />
-      <Secret />
+      <SafePage />
     </div>
   );
 }

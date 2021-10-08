@@ -22,11 +22,14 @@ function Account() {
 
 const NavBar = () => {
   const data = [
-    { link: "/", name: "Safes" },
-    { link: "/valut?data=hello", name: "Vault AppRoles" },
-    { link: "/valut?data=hii", name: "Service Accounts" },
-    { link: "/valut?data=there", name: "IAM Service Accounts" },
-    { link: "/valut?data=where", name: "Azure Active Directory" },
+    { link: "/vault", name: "Safes" },
+    { link: "/valut?data=Vault AppRoles", name: "Vault AppRoles" },
+    { link: "/valut?data=Service Accounts", name: "Service Accounts" },
+    { link: "/valut?data=IAM Service Accounts", name: "IAM Service Accounts" },
+    {
+      link: "/valut?data=Azure Active Directory",
+      name: "Azure Active Directory",
+    },
   ];
 
   return (
