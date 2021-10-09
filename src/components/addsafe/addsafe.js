@@ -1,10 +1,11 @@
-import React, { useState, useReducer, useEffect } from "react";
+import React, { useState } from "react";
 import "./addsafe.css";
 import safe from "../../assets/iconsPack/safe-icon.png";
 import { useDispatch } from "react-redux";
 import { addActionevent } from "../../Redux/Actions/action";
 
 function AddSafe(props) {
+  console.log(props, "props in addsafe.js");
   const { handleclosemodel } = props;
 
   const [safeName, setsafeName] = useState("");

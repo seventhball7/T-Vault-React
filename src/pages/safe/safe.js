@@ -4,10 +4,11 @@ import Secret from "./secretsfolder/secrestOfsafe";
 import "./safe.css";
 
 const SafePage = () => {
+  const [selectcardID, setSelectedCardID] = useState();
   return (
     <section className="section">
-      <Safes />
-      <Secret />
+      <Safes setselectcardID={setSelectedCardID} />
+      <Secret selectcardID={setSelectedCardID} />
     </section>
   );
 };
