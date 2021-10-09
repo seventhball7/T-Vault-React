@@ -30,7 +30,7 @@ const SafeReducer = (state = [], action) => {
 
     case types.ADDFOLDER:
       console.log(action.payload, "actionpayload");
-      return [state.secret, { ...action.payload }];
+      return [...action.payload];
     default:
       return state;
   }

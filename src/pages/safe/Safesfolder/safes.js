@@ -73,17 +73,20 @@ const Safes = (props) => {
               </button>
             </div>
           )}
-
-          {cardsDataArray?.map((currcard, index) => (
-            <Cards
-              index={index}
-              key={currcard.safeName + index}
-              currcard={currcard}
-              onClick={handleSelect}
-              handleEdit={() => handleEdit(currcard.id)}
-              handleDelete={(e) => handleDelete(e, currcard.id)}
-            />
-          ))}
+          <ul className="cardslist">
+            {cardsDataArray?.map((currcard, index) => (
+              <li key={currcard.id} className="card">
+                <Cards
+                  index={index}
+                  key={currcard.safeName + index}
+                  currcard={currcard}
+                  onClick={handleSelect}
+                  handleEdit={() => handleEdit(currcard.id)}
+                  handleDelete={(e) => handleDelete(e, currcard.id)}
+                />
+              </li>
+            ))}
+          </ul>
         </div>
       </div>
       {AddnewSafe && <Addsafe handleclosemodel={() => handleclosemodel()} />}
