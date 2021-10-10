@@ -100,3 +100,6 @@
   padding-top: 0.35rem;
   font-weight: 600;
 }
+.cardslist {
+  display: block;
+}

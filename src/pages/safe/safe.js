@@ -5,10 +5,38 @@ import "./safe.css";
 
 const SafePage = () => {
   const [selectcardID, setSelectedCardID] = useState();
+  const [folders, setFolders] = useState([]);
+  const addSafe = (id) => {
+    setFolders([
+      ...folders,
+      {
+        id: id,
+        list: [],
+      },
+    ]);
+    {
+      console.log("addsafeconfirm ", id);
+    }
+  };
+  const addSecret = (folderName) => {
+    let tempfolders = [...folders];
+    for (let i = 0; i < tempfolders.length; i++) {
+      if (tempfolders[i].id == selectcardID) {
+        tempfolders[i].list.push(folderName);
+        break;
+      }
+    }
+    console.log(tempfolders);
+    setFolders(tempfolders);
+  };
   return (
     <section className="section">
-      <Safes setselectcardID={setSelectedCardID} />
-      <Secret selectcardID={setSelectedCardID} />
+      <Safes setselectcardID={setSelectedCardID} addSafe={addSafe} />
+      <Secret
+        selectcardID={selectcardID}
+        addSecret={addSecret}
+        folders={folders}
+      />
     </section>
   );
 };

@@ -7,15 +7,35 @@ import { useSelector } from "react-redux";
 import folderIcon from "../../../assets/iconsPack/add-folder.png";
 const Secret = (props) => {
   console.log(props, "props in secret");
-  const secretArray = useSelector((state) => state?.secret);
+
+  const [flag, setFlag] = useState(props.selectcardID <= 0 ? false : true);
+  // const secretArray = useSelector((state) => state.secret);
+
+  const [secretArray, setSecretArray] = useState([]);
+  {
+    console.log(secretArray, "secretarray");
+  }
   const [Addnewsecret, setAddnewsecret] = useState(false);
   const handleclosemodel = () => {
     setAddnewsecret(false);
   };
-  // const [secretdataArray, setsecretDatArray] = useState();
-  // useEffect(() => {
-  //   setsecretDatArray(secretdataArray);
-  // }, [secretdataArray]);
+
+  useEffect(() => {
+    console.log(props.folders, "Props in secret");
+    console.log(props.selectcardID, "Selected card in secret");
+    console.log(flag, "FLAG");
+    if (flag == true) {
+      for (let i = 0; i < props.folders.length; i++) {
+        const element = props.folders[i];
+        if (element.id == props.selectcardID) {
+          console.log("hello", element);
+          setSecretArray(element.list);
+        }
+      }
+    } else {
+      setSecretArray([]);
+    }
+  });
 
   return (
     <div className="secretroot">
@@ -31,39 +51,42 @@ const Secret = (props) => {
             <span className="secret">Secret</span>
           </div>
           <div className="addf">
-            <span className="addfolder">Add Folder</span>
-
             <div>
               {Addnewsecret && (
-                <Addsecret handleclosemodel={() => handleclosemodel()} />
+                <Addsecret
+                  handleclosemodel={() => handleclosemodel()}
+                  addSecret={props.addSecret}
+                />
               )}
-              <button
+              <div
+                className="addsecret"
                 onClick={() => {
                   setAddnewsecret(true);
-                  <img className="addicon" src={addfolder} alt="+"></img>;
                 }}
-              ></button>
+              >
+                <span className="addfolder">Add Folder</span>
+                <img className="addicon" src={addfolder} alt="+"></img>
+              </div>
             </div>
           </div>
         </div>
         <div className="secretcontent">
           {console.log(secretArray, "secretArray")}
-          {secretArray && (
-            <div className="secretFolderItem">
-              {secretArray.map((itemvalue) => {
-                return (
-                  <div className="eachFolder">
-                    <span className="dropdownFolderItem"></span>
-                    <img src={folderIcon} alt="folderIcon"></img>
-                    <span className="newFolder">
-                      {" "}
-                      {itemvalue} <span className="newlyAdded">New</span>
-                    </span>
-                  </div>
-                );
-              })}
-            </div>
-          )}
+
+          <div className="secretFolderItem">
+            {secretArray.map((item) => {
+              return (
+                <div className="eachFolder">
+                  <span className="dropdownFolderItem"></span>
+                  <img src={folderIcon} alt="folderIcon"></img>
+                  <span className="newFolder">
+                    {" "}
+                    {item} <span className="newlyAdded">New</span>
+                  </span>
+                </div>
+              );
+            })}
+          </div>
         </div>
       </div>
     </div>

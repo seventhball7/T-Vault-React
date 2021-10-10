@@ -3,6 +3,7 @@ import "./addsafe.css";
 import safe from "../../assets/iconsPack/safe-icon.png";
 import { useDispatch } from "react-redux";
 import { addActionevent } from "../../Redux/Actions/action";
+import types from "../../Redux/Actions/type.js";
 
 function AddSafe(props) {
   console.log(props, "props in addsafe.js");
@@ -16,13 +17,16 @@ function AddSafe(props) {
   const dispatch = useDispatch();
   const HandleAdd = (e) => {
     e.preventDefault();
+    let id = Math.random() * 1000;
+    // let a = dispatch({ type: types.CREATESAFEINFOL, payload: id });
+    props.addSafe(id);
     dispatch(
       addActionevent({
         safeName: safeName,
         owner: owner,
         Description: Description,
         Catagory: Catagory,
-        id: Math.random(),
+        id,
       })
     );
     handleclosemodel();

@@ -12,10 +12,13 @@ import Cards from "../../../components/cards/cards";
 import Editsafe from "../../../components/editsafe/editsafe";
 import { useDispatch } from "react-redux";
 import { deleteEvent, isSelected } from "../../../Redux/Actions/action";
+import { checkPropTypes } from "prop-types";
 
 const Safes = (props) => {
-  const cardsarray = useSelector((state) => state?.safe);
-
+  {
+    console.log(props);
+  }
+  const cardsarray = useSelector((state) => state.safe);
   const [AddnewSafe, setAddnewsafe] = useState(false);
   const [editSafe, setEditSafe] = useState(false);
   const handleclosemodel = () => {
@@ -39,6 +42,7 @@ const Safes = (props) => {
     e.preventDefault();
     dispatch(deleteEvent(id));
     handleclosemodel();
+    props.setselectcardID(0);
   };
   const handleEdit = (id) => {
     setAddnewsafe(false);
@@ -74,22 +78,32 @@ const Safes = (props) => {
             </div>
           )}
           <ul className="cardslist">
-            {cardsDataArray?.map((currcard, index) => (
-              <li key={currcard.id} className="card">
-                <Cards
-                  index={index}
-                  key={currcard.safeName + index}
-                  currcard={currcard}
-                  onClick={handleSelect}
-                  handleEdit={() => handleEdit(currcard.id)}
-                  handleDelete={(e) => handleDelete(e, currcard.id)}
-                />
-              </li>
-            ))}
+            {cardsDataArray?.map(
+              (currcard, index) => (
+                // currcard.secret == undefined && (
+                <li key={index} className="card">
+                  <Cards
+                    setselectcardID={props.setselectcardID}
+                    index={index}
+                    key={index}
+                    currcard={currcard}
+                    onClick={handleSelect}
+                    handleEdit={() => handleEdit(currcard.id)}
+                    handleDelete={(e) => handleDelete(e, currcard.id)}
+                  />
+                </li>
+              )
+              //)
+            )}
           </ul>
         </div>
       </div>
-      {AddnewSafe && <Addsafe handleclosemodel={() => handleclosemodel()} />}
+      {AddnewSafe && (
+        <Addsafe
+          handleclosemodel={() => handleclosemodel()}
+          addSafe={props.addSafe}
+        />
+      )}
       {editSafe && (
         <Editsafe
           id={selectedCard}

@@ -3,16 +3,13 @@ import "./addsecret.css";
 import { useDispatch, useSelector } from "react-redux";
 import { addFolder } from "../../Redux/Actions/action";
 const Addsecret = (props) => {
-  const [addsecret, setAddSecret] = useState("");
+  const newSecret = { name: "" };
+  const [addsecret, setAddSecret] = useState(newSecret);
   const { handleclosemodel } = props;
   const dispatch = useDispatch();
   const folderAdd = (e) => {
     e.preventDefault();
-    dispatch(
-      addFolder({
-        secret: addsecret,
-      })
-    );
+    props.addSecret(addsecret);
     handleclosemodel();
   };
   return (
@@ -29,7 +26,7 @@ const Addsecret = (props) => {
             className="inputTag"
             type="text"
             placeholder="Fill this"
-            value={addsecret}
+            value={addsecret.name}
             onChange={(e) => setAddSecret(e.target.value)}
           ></input>
           <p className="bottomP">Please add a minimum of 10 characters</p>
