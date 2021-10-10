@@ -21,7 +21,7 @@ const Secret = (props) => {
   };
 
   useEffect(() => {
-    console.log(props.folders, "Props in secret");
+    console.log(props.folders, "Props folder in secret");
     console.log(props.selectcardID, "Selected card in secret");
     console.log(flag, "FLAG");
     if (flag == true) {
@@ -40,9 +40,12 @@ const Secret = (props) => {
   return (
     <div className="secretroot">
       <div className="backimg">
-        <span className="safeheader"> No Safe Created Yet</span>
+        <span className="safeheader">Sample / SafeName</span>
         <span className="safedef">
-          Create a safe to see your secrets, folders and permissions here
+          A Safe is a logical unit to store the secrets. All the safes are
+          created within Vault. You can control access only at the safe level.
+          As a vault administrator you can manage safes but cannot view the
+          content of the safe.
         </span>
       </div>
       <div className="insecret">
@@ -51,6 +54,14 @@ const Secret = (props) => {
             <span className="secret">Secret</span>
           </div>
           <div className="addf">
+            <span id="addsecret">
+              {props.selectcardID === 0 && (
+                <>
+                  <span className="addfolder">Add Folder</span>
+                  <img className="addicon" src={addfolder} alt="+"></img>
+                </>
+              )}
+            </span>
             <div>
               {Addnewsecret && (
                 <Addsecret
@@ -58,15 +69,17 @@ const Secret = (props) => {
                   addSecret={props.addSecret}
                 />
               )}
-              <div
-                className="addsecret"
-                onClick={() => {
-                  setAddnewsecret(true);
-                }}
-              >
-                <span className="addfolder">Add Folder</span>
-                <img className="addicon" src={addfolder} alt="+"></img>
-              </div>
+              {props.selectcardID > 0 && (
+                <div
+                  className="addsecret"
+                  onClick={() => {
+                    setAddnewsecret(true);
+                  }}
+                >
+                  <span className="addfolder">Add Folder</span>
+                  <img className="addicon" src={addfolder} alt="+"></img>
+                </div>
+              )}
             </div>
           </div>
         </div>
@@ -81,7 +94,7 @@ const Secret = (props) => {
                   <img src={folderIcon} alt="folderIcon"></img>
                   <span className="newFolder">
                     {" "}
-                    {item} <span className="newlyAdded">New</span>
+                    {item} <span className="newlyAdded"></span>
                   </span>
                 </div>
               );

@@ -2,7 +2,7 @@
 .saferoot {
   background-color: #151820;
   color: white;
-  width: 34rem;
+
   position: absolute;
   top: 3rem;
   left: 10rem;
@@ -60,13 +60,10 @@
 #empty {
   width: 222px;
   height: 260px;
-  position: absolute;
-  left: 150px;
-  top: 193px;
 }
 #createNewBtn {
   top: 27rem;
-  right: 13.5rem;
+
   position: absolute;
   background-color: hsl(329, 69%, 39%);
   height: 4rem;
@@ -102,4 +99,106 @@
 }
 .cardslist {
   display: block;
+}
+.bottom {
+  height: 80%;
+  width: 100%;
+}
+.all-wrapper {
+  height: 100%;
+  width: 100%;
+}
+.card {
+  border-bottom: solid 0.5px #2a2e3e;
+  -webkit-background-clip: padding-box;
+  background-clip: padding-box;
+}
+#createNewBtn2 {
+  top: 27rem;
+  right: 2rem;
+  position: absolute;
+  background-color: hsl(329, 69%, 39%);
+  height: 4rem;
+  width: 4rem;
+  border-radius: 50%;
+  color: white;
+  font-size: 1.5rem;
+  border: solid 2px hsl(329, 69%, 39%);
+}
+#createNewBtn2:hover {
+  cursor: pointer;
+}
+
+#createNewBtn2:hover .onHoverShowText {
+  cursor: pointer;
+  visibility: visible;
+  cursor: pointer;
+  position: absolute;
+}
+
+#createNewBtn2 .onHoverShowText {
+  visibility: hidden;
+  position: absolute;
+  background: white;
+  margin-left: -4.5rem;
+  font-size: 0.8rem;
+  margin-top: 4rem;
+  color: black;
+  height: 1.7rem;
+  width: 8rem;
+  padding-top: 0.35rem;
+  font-weight: 600;
+}
+
+.card:hover {
+  cursor: pointer;
+  transition: all 0.7s ease-in-out;
+  background-image: linear-gradient(to right, #72134b, #1d212c);
+}
+.noelements {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media screen and (max-width: 995px), screen and (max-height: 650px) {
+  #empty {
+    width: 222px;
+    height: 260px;
+  }
+  #createNewBtn {
+    top: 18rem;
+    right: 13.5rem;
+    position: absolute;
+    background-color: hsl(329, 69%, 39%);
+    height: 4rem;
+    width: 4rem;
+    border-radius: 50%;
+    color: white;
+    font-size: 1.5rem;
+    border: solid 2px hsl(329, 69%, 39%);
+  }
+}
+@media screen and (max-width: 995px), screen and (max-height: 540px) {
+  #empty {
+    width: 80px;
+    height: 80px;
+    position: absolute;
+    left: 100px;
+    top: 60px;
+  }
+  #createNewBtn {
+    top: 15rem;
+    right: 13.5rem;
+    position: absolute;
+    background-color: hsl(329, 69%, 39%);
+    height: 4rem;
+    width: 4rem;
+    border-radius: 50%;
+    color: white;
+    font-size: 1.5rem;
+    border: solid 2px hsl(329, 69%, 39%);
+  }
 }

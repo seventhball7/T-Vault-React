@@ -110,15 +110,17 @@ const Safes = (props) => {
           handleclosemodel={() => handleclosemodel()}
         />
       )}
-      <button
-        onClick={() => {
-          setEditSafe(false);
-          setAddnewsafe(true);
-        }}
-        id="createNewBtn"
-      >
-        +<span className="onHoverShowText">Create New Safe</span>
-      </button>
+      {cardsarray.length > 0 && (
+        <button
+          onClick={() => {
+            setEditSafe(false);
+            setAddnewsafe(true);
+          }}
+          id="createNewBtn2"
+        >
+          +<span className="onHoverShowText">Create New Safe</span>
+        </button>
+      )}
     </div>
   );
 };

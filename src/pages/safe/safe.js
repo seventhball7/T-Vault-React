@@ -26,7 +26,7 @@ const SafePage = () => {
         break;
       }
     }
-    console.log(tempfolders);
+    console.log(tempfolders, "tempfolders");
     setFolders(tempfolders);
   };
   return (

@@ -1,4 +1,7 @@
-.cardrootright,
+.cardrootright {
+  display: flex;
+  width: 100%;
+}
 .cardrootcentre {
   display: flex;
 }
@@ -12,7 +15,7 @@ img {
   width: 2rem;
 }
 .cardroot {
-  margin: 1rem 1rem;
+  padding: 1rem 1rem;
   display: flex;
   justify-content: space-between;
   align-items: center;

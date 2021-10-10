@@ -9,14 +9,14 @@ const Cards = (props) => {
   const { currcard, handleEdit, handleDelete } = props;
 
   return (
-    <div
-      className="cardroot"
-      onClick={() => {
-        props.setselectcardID(currcard.id);
-        console.log(currcard.id, "ID in selcted");
-      }}
-    >
-      <div className="cardrootright">
+    <div className="cardroot">
+      <div
+        className="cardrootright"
+        onClick={() => {
+          props.setselectcardID(currcard.id);
+          console.log(currcard.id, "ID in selcted");
+        }}
+      >
         <div className="imgtag">
           <img src={safeicon} alt="iconSafe" className="iconSafe" />
         </div>
