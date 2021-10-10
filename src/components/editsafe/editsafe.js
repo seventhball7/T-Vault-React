@@ -2,7 +2,7 @@ import React, { useState, useReducer, useEffect } from "react";
 import "../addsafe/addsafe.css";
 import safe from "../../assets/iconsPack/safe-icon.png";
 import { useDispatch, useSelector } from "react-redux";
-import { addActionevent, editEvent } from "../../Redux/Actions/action";
+import { addActionevent, editEvent } from "../../redux/Actions/action";
 
 function Editsafe(props) {
   const { handleclosemodel, id } = props;

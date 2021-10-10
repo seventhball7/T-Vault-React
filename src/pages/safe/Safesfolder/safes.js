@@ -11,7 +11,7 @@ import { useSelector } from "react-redux";
 import Cards from "../../../components/cards/cards";
 import Editsafe from "../../../components/editsafe/editsafe";
 import { useDispatch } from "react-redux";
-import { deleteEvent, isSelected } from "../../../Redux/Actions/action";
+import { deleteEvent, isSelected } from "../../../redux/Actions/action";
 import { checkPropTypes } from "prop-types";
 
 const Safes = (props) => {

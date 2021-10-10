@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import "./addsafe.css";
 import safe from "../../assets/iconsPack/safe-icon.png";
 import { useDispatch } from "react-redux";
-import { addActionevent } from "../../Redux/Actions/action";
-import types from "../../Redux/Actions/type.js";
+import { addActionevent } from "../../redux/Actions/action";
+import types from "../../redux/Actions/type.js";
 
 function AddSafe(props) {
   console.log(props, "props in addsafe.js");

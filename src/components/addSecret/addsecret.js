@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./addsecret.css";
 import { useDispatch, useSelector } from "react-redux";
-import { addFolder } from "../../Redux/Actions/action";
+import { addFolder } from "../../redux/Actions/action";
 const Addsecret = (props) => {
   const newSecret = { name: "" };
   const [addsecret, setAddSecret] = useState(newSecret);
