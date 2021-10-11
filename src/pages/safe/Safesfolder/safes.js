@@ -1,6 +1,6 @@
 /*eslint no-unused-expressions: "error"*/
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import "./safe.css";
 import Addsafe from "../../../components/addsafe/addsafe";
 import expand from "../../../assets/iconsPack/icon_arrow_white.svg";
@@ -20,13 +20,15 @@ const Safes = (props) => {
   }
   const cardsarray = useSelector((state) => state.safe);
   const [AddnewSafe, setAddnewsafe] = useState(false);
+  const [searchTerm, setSearchTerm] = useState("");
+  const [newSafeList, setNewSafeList] = useState([]);
   const [editSafe, setEditSafe] = useState(false);
   const handleclosemodel = () => {
     setAddnewsafe(false);
     setEditSafe(false);
   };
   const [isselected, setisselected] = useState("false");
-
+  const inputRef = useRef("");
   useEffect(() => {
     setcardsDatArray(cardsarray);
   }, [cardsarray]);
@@ -49,6 +51,21 @@ const Safes = (props) => {
     setEditSafe(true);
     setSelectedCard(id);
   };
+  const filteredAllSafes = () => {
+    const searchText = inputRef?.current.value;
+    console.log(searchText);
+    setSearchTerm(searchText);
+    if (searchText !== "") {
+      const newAllSafes = cardsarray.filter((currcard) => {
+        return currcard?.safeName
+          .toLowerCase()
+          .includes(searchText.toLowerCase());
+      });
+      setNewSafeList(newAllSafes);
+    } else {
+      return cardsarray;
+    }
+  };
   return (
     <div className="saferoot">
       <div className="top">
@@ -58,7 +75,14 @@ const Safes = (props) => {
         </div>
         <div className="searchnbox">
           <img className="search" src={search} alt="Search"></img>
-          <input type="text" id="box" placeholder="Search"></input>
+          <input
+            ref={inputRef}
+            type="text"
+            id="box"
+            placeholder="Search"
+            value={searchTerm}
+            onChange={filteredAllSafes}
+          ></input>
         </div>
       </div>
       <div className="bottom">
@@ -78,26 +102,46 @@ const Safes = (props) => {
             </div>
           )}
           <ul className="cardslist">
-            {cardsDataArray?.map(
-              (currcard, index) => (
-                // currcard.secret == undefined && (
-                <li key={index} className="card">
-                  <Cards
-                    setselectcardID={props.setselectcardID}
-                    index={index}
-                    key={index}
-                    currcard={currcard}
-                    onClick={handleSelect}
-                    handleEdit={() => handleEdit(currcard.id)}
-                    handleDelete={(e) => handleDelete(e, currcard.id)}
-                  />
-                </li>
-              )
-              //)
-            )}
+            {!searchTerm &&
+              cardsDataArray?.map(
+                (currcard, index) => (
+                  // currcard.secret == undefined && (
+                  <li key={index} className="card">
+                    <Cards
+                      setselectcardID={props.setselectcardID}
+                      index={index}
+                      key={index}
+                      currcard={currcard}
+                      onClick={handleSelect}
+                      handleEdit={() => handleEdit(currcard.id)}
+                      handleDelete={(e) => handleDelete(e, currcard.id)}
+                    />
+                  </li>
+                )
+                //)
+              )}
+
+            {searchTerm &&
+              newSafeList &&
+              newSafeList.map((currcard, index) => {
+                return (
+                  <li key={currcard} className="cardsearch">
+                    <Cards
+                      setselectcardID={props.setselectcardID}
+                      index={index}
+                      key={index}
+                      currcard={currcard}
+                      onClick={handleSelect}
+                      handleEdit={() => handleEdit(currcard.id)}
+                      handleDelete={(e) => handleDelete(e, currcard.id)}
+                    />
+                  </li>
+                );
+              })}
           </ul>
         </div>
       </div>
+
       {AddnewSafe && (
         <Addsafe
           handleclosemodel={() => handleclosemodel()}
