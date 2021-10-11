@@ -6,7 +6,6 @@ import { addActionevent } from "../../redux/Actions/action";
 import types from "../../redux/Actions/type.js";
 
 function AddSafe(props) {
-  console.log(props, "props in addsafe.js");
   const { handleclosemodel } = props;
 
   const [safeName, setsafeName] = useState("");
@@ -18,7 +17,6 @@ function AddSafe(props) {
   const HandleAdd = (e) => {
     e.preventDefault();
     let id = Math.random() * 1000;
-    // let a = dispatch({ type: types.CREATESAFEINFOL, payload: id });
     props.addSafe(id);
     dispatch(
       addActionevent({

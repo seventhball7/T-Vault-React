@@ -15,9 +15,6 @@ import { deleteEvent, isSelected } from "../../../redux/Actions/action";
 import { checkPropTypes } from "prop-types";
 
 const Safes = (props) => {
-  {
-    console.log(props);
-  }
   const cardsarray = useSelector((state) => state.safe);
   const [AddnewSafe, setAddnewsafe] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
@@ -53,7 +50,6 @@ const Safes = (props) => {
   };
   const filteredAllSafes = () => {
     const searchText = inputRef?.current.value;
-    console.log(searchText);
     setSearchTerm(searchText);
     if (searchText !== "") {
       const newAllSafes = cardsarray.filter((currcard) => {
@@ -105,7 +101,6 @@ const Safes = (props) => {
             {!searchTerm &&
               cardsDataArray?.map(
                 (currcard, index) => (
-                  // currcard.secret == undefined && (
                   <li key={index} className="card">
                     <Cards
                       setselectcardID={props.setselectcardID}

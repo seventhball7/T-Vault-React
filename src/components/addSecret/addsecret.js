@@ -25,6 +25,7 @@ const Addsecret = (props) => {
           <input
             className="inputTag"
             type="text"
+            required="required"
             placeholder="Fill this"
             value={addsecret.name}
             onChange={(e) => setAddSecret(e.target.value)}
